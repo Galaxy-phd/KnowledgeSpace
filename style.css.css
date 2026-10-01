@@ -1,625 +1,389 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Knowledge Space</title>
-
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-    <!-- NAVIGATION -->
-    <header class="navbar">
-
-        <div class="logo">
-            Knowledge<span>Space</span>
-        </div>
-
-        <nav>
-            <button onclick="showPage('home')">Accueil</button>
-            <button onclick="showPage('explorer')">Explorer</button>
-            <button onclick="showPage('learn')">Apprendre</button>
-            <button onclick="showPage('projects')">Projets</button>
-            <button onclick="showPage('library')">Bibliothèque</button>
-            <button onclick="showPage('profile')">Profil</button>
-        </nav>
-
-        <button class="login">Connexion</button>
-
-    </header>
+/* =====================================================
+   KNOWLEDGE SPACE
+   JAVASCRIPT
+===================================================== */
 
 
-    <!-- CONTENU PRINCIPAL -->
-    <main>
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+function showPage(pageName) {
+
+    const pages = document.querySelectorAll(".page");
+
+    pages.forEach(function(page) {
+        page.classList.remove("active");
+    });
+
+    const selectedPage = document.getElementById(pageName);
+
+    if (selectedPage) {
+
+        selectedPage.classList.add("active");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+}
 
 
-        <!-- ACCUEIL -->
-        <section id="home" class="page active">
+/* =====================================================
+   MENUS DÃ‰ROULANTS
+===================================================== */
 
-            <div class="hero">
+document.addEventListener("DOMContentLoaded", function() {
 
-                <p class="small-title">PLATEFORME COLLABORATIVE DE CONNAISSANCES</p>
+    const dropdowns = document.querySelectorAll(".dropdown");
 
-                <h1>
-                    Découvrir.<br>
-                    Comprendre.<br>
-                    <span>Construire ensemble.</span>
-                </h1>
+    dropdowns.forEach(function(dropdown) {
 
-                <p class="hero-text">
-                    Une plateforme pour explorer, apprendre et construire
-                    collectivement des connaissances.
-                </p>
+        const button = dropdown.querySelector(".dropbtn");
 
-                <div class="hero-buttons">
-                    <button class="primary" onclick="showPage('explorer')">
-                        Explorer
-                    </button>
+        if (!button) {
+            return;
+        }
 
-                    <button class="secondary" onclick="showPage('learn')">
-                        Commencer à apprendre
-                    </button>
-                </div>
+        button.addEventListener("click", function(event) {
 
-            </div>
+            event.stopPropagation();
 
+            dropdowns.forEach(function(otherDropdown) {
 
-            <div class="section">
+                if (otherDropdown !== dropdown) {
+                    otherDropdown.classList.remove("open");
+                }
 
-                <h2>Que souhaites-tu faire aujourd'hui ?</h2>
+            });
 
-                <div class="three-cards">
+            dropdown.classList.toggle("open");
 
-                    <div class="action-card" onclick="showPage('explorer')">
-                        <div class="icon">??</div>
-                        <h3>Explorer</h3>
-                        <p>
-                            Découvre des concepts, des actualités,
-                            des histoires et des sources.
-                        </p>
-                    </div>
+        });
 
-                    <div class="action-card" onclick="showPage('learn')">
-                        <div class="icon">??</div>
-                        <h3>Apprendre</h3>
-                        <p>
-                            Construis ton parcours et progresse
-                            à ton propre niveau.
-                        </p>
-                    </div>
-
-                    <div class="action-card" onclick="showPage('projects')">
-                        <div class="icon">??</div>
-                        <h3>Contribuer</h3>
-                        <p>
-                            Participe à des projets et construis
-                            des connaissances avec d'autres.
-                        </p>
-                    </div>
-
-                </div>
-
-            </div>
+    });
 
 
-            <div class="section">
+    /* Fermer les menus lorsqu'on clique ailleurs */
 
-                <h2>Continuer à apprendre</h2>
+    document.addEventListener("click", function() {
 
-                <div class="learning-card">
+        dropdowns.forEach(function(dropdown) {
+            dropdown.classList.remove("open");
+        });
 
-                    <div>
-                        <span class="tag">SCIENCES</span>
+    });
 
-                        <h3>Comprendre la mécanique quantique</h3>
-
-                        <p>
-                            Progression : 35 %
-                        </p>
-                    </div>
-
-                    <div class="progress">
-                        <div style="width:35%"></div>
-                    </div>
-
-                    <button class="primary small"
-                            onclick="showPage('learn')">
-                        Continuer
-                    </button>
-
-                </div>
-
-            </div>
+});
 
 
-            <div class="section">
+/* =====================================================
+   EXPLORER
+===================================================== */
 
-                <h2>À découvrir</h2>
+function selectUniverse(universe) {
 
-                <div class="content-grid">
+    showPage("explorer");
 
-                    <article>
-                        <span class="tag">SCIENCES</span>
-                        <h3>Les réseaux neuronaux</h3>
-                        <p>
-                            Comprendre les principes fondamentaux
-                            de l'intelligence artificielle.
-                        </p>
-                    </article>
+    setTimeout(function() {
 
-                    <article>
-                        <span class="tag">SANTÉ</span>
-                        <h3>Comment fonctionne la mémoire ?</h3>
-                        <p>
-                            Explorer les mécanismes biologiques
-                            de la mémoire humaine.
-                        </p>
-                    </article>
+        alert(
+            "Tu explores maintenant l'univers : " + universe
+        );
 
-                    <article>
-                        <span class="tag">PHILOSOPHIE</span>
-                        <h3>Qu'est-ce que la conscience ?</h3>
-                        <p>
-                            Découvrir les principales théories
-                            philosophiques.
-                        </p>
-                    </article>
+    }, 250);
 
-                </div>
-
-            </div>
-
-        </section>
+}
 
 
-        <!-- EXPLORER -->
-        <section id="explorer" class="page">
+/* =====================================================
+   APPRENDRE
+===================================================== */
 
-            <div class="page-header">
+function createLearningPath() {
 
-                <p class="small-title">EXPLORER</p>
+    const input = document.getElementById("learningInput");
+    const levelSelect = document.getElementById("level");
+    const result = document.getElementById("learningResult");
 
-                <h1>Explore les connaissances</h1>
+    if (!input || !levelSelect || !result) {
+        return;
+    }
+
+    const subject = input.value.trim();
+    const level = levelSelect.value;
+
+
+    /* VÃ©rification */
+
+    if (subject === "") {
+
+        result.innerHTML = `
+            <div class="result">
+
+                <strong>Que souhaites-tu apprendre ?</strong>
 
                 <p>
-                    Découvre des concepts, des sources et des sujets
-                    organisés par discipline.
+                    Ã‰cris un sujet pour crÃ©er ton parcours personnalisÃ©.
                 </p>
 
             </div>
+        `;
 
+        return;
+    }
 
-            <div class="universes">
 
-                <div class="universe sciences"
-                     onclick="selectUniverse('Sciences')">
+    /* CrÃ©ation du parcours */
 
-                    <span>??</span>
+    result.innerHTML = `
 
-                    <h2>Sciences</h2>
+        <div class="result">
 
-                    <p>
-                        Physique, chimie, informatique,
-                        IA, environnement...
-                    </p>
+            <span class="tag">
+                PARCOURS PERSONNALISÃ‰
+            </span>
 
-                    <button>Explorer ?</button>
+            <h3>
+                Ton parcours est prÃªt ðŸš€
+            </h3>
 
-                </div>
+            <p>
+                <strong>Sujet :</strong>
+                ${escapeHTML(subject)}
+            </p>
 
+            <p>
+                <strong>Niveau :</strong>
+                ${escapeHTML(level)}
+            </p>
 
-                <div class="universe health"
-                     onclick="selectUniverse('Santé')">
-
-                    <span>??</span>
-
-                    <h2>Santé</h2>
-
-                    <p>
-                        Biologie, médecine, neurosciences,
-                        génétique...
-                    </p>
-
-                    <button>Explorer ?</button>
-
-                </div>
-
-
-                <div class="universe philosophy">
-
-                    <span>???</span>
-
-                    <h2>Philosophie</h2>
-
-                    <p>
-                        Éthique, logique, métaphysique,
-                        épistémologie...
-                    </p>
-
-                    <button>Bientôt</button>
-
-                </div>
-
-
-                <div class="universe finance">
-
-                    <span>??</span>
-
-                    <h2>Finance</h2>
-
-                    <p>
-                        Économie, marchés, finance personnelle,
-                        risques...
-                    </p>
-
-                    <button>Bientôt</button>
-
-                </div>
-
-            </div>
-
-
-            <div class="section">
-
-                <h2>Concepts populaires</h2>
-
-                <div class="concept-grid">
-
-                    <div class="concept">
-                        <span>SCIENCES</span>
-                        <h3>Mécanique quantique</h3>
-                        <p>
-                            Superposition · Intrication · Mesure
-                        </p>
-                    </div>
-
-                    <div class="concept">
-                        <span>SCIENCES</span>
-                        <h3>Intelligence artificielle</h3>
-                        <p>
-                            Machine Learning · LLM · Transformers
-                        </p>
-                    </div>
-
-                    <div class="concept">
-                        <span>SANTÉ</span>
-                        <h3>Neurosciences</h3>
-                        <p>
-                            Cerveau · Mémoire · Neurones
-                        </p>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- APPRENDRE -->
-        <section id="learn" class="page">
-
-            <div class="page-header">
-
-                <p class="small-title">APPRENDRE</p>
-
-                <h1>Que veux-tu comprendre ?</h1>
-
-                <p>
-                    Construis un parcours adapté à ton niveau.
-                </p>
-
-            </div>
-
-
-            <div class="learning-box">
-
-                <input
-                    type="text"
-                    id="learningInput"
-                    placeholder="Exemple : Je veux comprendre la relativité..."
-                >
-
-                <select id="level">
-                    <option>Débutant</option>
-                    <option>Intermédiaire</option>
-                    <option>Avancé</option>
-                    <option>Expert</option>
-                </select>
-
-                <button class="primary"
-                        onclick="createLearningPath()">
-                    Créer mon parcours
-                </button>
-
-            </div>
-
-
-            <div id="learningResult"></div>
-
-
-            <div class="section">
-
-                <h2>Exemple de parcours</h2>
-
-                <div class="path">
-
-                    <div class="path-step">
-                        <strong>01</strong>
-                        <h3>Prérequis</h3>
-                        <p>
-                            Vecteurs · Référentiels · Mouvement
-                        </p>
-                    </div>
-
-                    <div class="path-line"></div>
-
-                    <div class="path-step">
-                        <strong>02</strong>
-                        <h3>Fondamentaux</h3>
-                        <p>
-                            Temps · Espace · Lumière
-                        </p>
-                    </div>
-
-                    <div class="path-line"></div>
-
-                    <div class="path-step">
-                        <strong>03</strong>
-                        <h3>Intermédiaire</h3>
-                        <p>
-                            Espace-temps · Dilatation du temps
-                        </p>
-                    </div>
-
-                    <div class="path-line"></div>
-
-                    <div class="path-step">
-                        <strong>04</strong>
-                        <h3>Avancé</h3>
-                        <p>
-                            Relativité générale
-                        </p>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- PROJETS -->
-        <section id="projects" class="page">
-
-            <div class="page-header">
-
-                <p class="small-title">SPACE PROJECTS</p>
-
-                <h1>Construire ensemble</h1>
-
-                <p>
-                    Travaille avec d'autres personnes sur des sujets
-                    complexes.
-                </p>
-
-                <button class="primary"
-                        onclick="createProject()">
-                    + Créer un projet
-                </button>
-
-            </div>
-
-
-            <div id="projectList" class="project-grid">
-
-                <article class="project-card">
-
-                    <span class="status">EN CONSTRUCTION</span>
-
-                    <h2>Comprendre l'intelligence artificielle générative</h2>
-
-                    <p>
-                        Construire une synthèse structurée sur les
-                        Transformers, les LLM et leurs limites.
-                    </p>
-
-                    <div class="project-info">
-                        ?? 12 collaborateurs
-                    </div>
-
-                    <button onclick="openProject()">
-                        Voir le projet ?
-                    </button>
-
-                </article>
-
-
-                <article class="project-card">
-
-                    <span class="status">EN RÉVISION</span>
-
-                    <h2>Comprendre les mécanismes de la mémoire</h2>
-
-                    <p>
-                        Explorer les connaissances disponibles
-                        sur la mémoire humaine.
-                    </p>
-
-                    <div class="project-info">
-                        ?? 8 collaborateurs
-                    </div>
-
-                    <button onclick="openProject()">
-                        Voir le projet ?
-                    </button>
-
-                </article>
-
-
-                <article class="project-card">
-
-                    <span class="status">PUBLIC</span>
-
-                    <h2>Histoire des grandes découvertes scientifiques</h2>
-
-                    <p>
-                        Construire une chronologie collaborative
-                        des découvertes majeures.
-                    </p>
-
-                    <div class="project-info">
-                        ?? 21 collaborateurs
-                    </div>
-
-                    <button onclick="openProject()">
-                        Voir le projet ?
-                    </button>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- BIBLIOTHÈQUE -->
-        <section id="library" class="page">
-
-            <div class="page-header">
-
-                <p class="small-title">BIBLIOTHÈQUE</p>
-
-                <h1>Sources et connaissances</h1>
-
-                <p>
-                    Retrouve les ressources utilisées par la communauté.
-                </p>
-
-            </div>
-
-
-            <div class="search">
-
-                <input
-                    type="text"
-                    placeholder="Rechercher une source..."
-                >
-
-                <button class="primary">
-                    Rechercher
-                </button>
-
-            </div>
-
-
-            <div class="source-list">
-
-                <article>
-                    <span>ARTICLE SCIENTIFIQUE</span>
-                    <h3>Introduction à la relativité</h3>
-                    <p>Source scientifique · 2026</p>
-                </article>
-
-                <article>
-                    <span>PUBLICATION</span>
-                    <h3>Neuroscience and Human Memory</h3>
-                    <p>Publication académique</p>
-                </article>
-
-                <article>
-                    <span>RAPPORT</span>
-                    <h3>Artificial Intelligence Research</h3>
-                    <p>Rapport institutionnel</p>
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- PROFIL -->
-        <section id="profile" class="page">
-
-            <div class="profile-header">
-
-                <div class="avatar">U</div>
+            <div class="mini-path">
 
                 <div>
-                    <p class="small-title">MON PROFIL</p>
-                    <h1>Utilisateur</h1>
-                    <p>
-                        Explorer · Apprendre · Contribuer
-                    </p>
+                    <strong>01</strong>
+                    PrÃ©requis
+                </div>
+
+                <div>
+                    <strong>02</strong>
+                    Fondamentaux
+                </div>
+
+                <div>
+                    <strong>03</strong>
+                    Approfondissement
+                </div>
+
+                <div>
+                    <strong>04</strong>
+                    MaÃ®trise
                 </div>
 
             </div>
 
+            <br>
 
-            <div class="profile-grid">
+            <button
+                class="primary"
+                onclick="startLearning()">
 
-                <div class="profile-card">
+                Commencer le parcours
 
-                    <h2>Mes domaines</h2>
+            </button>
 
-                    <p>?? Sciences</p>
-                    <div class="bar">
-                        <div style="width:80%"></div>
-                    </div>
-
-                    <p>?? Santé</p>
-                    <div class="bar">
-                        <div style="width:65%"></div>
-                    </div>
-
-                    <p>??? Philosophie</p>
-                    <div class="bar">
-                        <div style="width:40%"></div>
-                    </div>
-
-                </div>
-
-
-                <div class="profile-card">
-
-                    <h2>Mes contributions</h2>
-
-                    <h3>12</h3>
-                    <p>connaissances améliorées</p>
-
-                    <h3>4</h3>
-                    <p>projets</p>
-
-                    <h3>28</h3>
-                    <p>sources partagées</p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-    <footer>
-
-        <div class="logo">
-            Knowledge<span>Space</span>
         </div>
 
+    `;
+
+
+    result.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+}
+
+
+/* =====================================================
+   DÃ‰MARRER UN PARCOURS
+===================================================== */
+
+function startLearning() {
+
+    alert(
+        "Ton parcours d'apprentissage va bientÃ´t commencer ðŸš€"
+    );
+
+}
+
+
+/* =====================================================
+   PROJETS
+===================================================== */
+
+function createProject() {
+
+    const name = prompt(
+        "Quel est le nom de ton Space Project ?"
+    );
+
+
+    if (!name || name.trim() === "") {
+        return;
+    }
+
+
+    const description = prompt(
+        "Quel est l'objectif du projet ?"
+    );
+
+
+    const projectList =
+        document.getElementById("projectList");
+
+
+    if (!projectList) {
+        return;
+    }
+
+
+    const project =
+        document.createElement("article");
+
+
+    project.className = "project-card";
+
+
+    project.innerHTML = `
+
+        <span class="status">
+            NOUVEAU PROJET
+        </span>
+
+        <h2>
+            ${escapeHTML(name)}
+        </h2>
+
         <p>
-            Je découvre. Je comprends. Je contribue.
+            ${
+                escapeHTML(
+                    description ||
+                    "Projet collaboratif de connaissances."
+                )
+            }
         </p>
 
-    </footer>
+        <div class="project-info">
+            ðŸ‘¤ 1 collaborateur
+        </div>
+
+        <button onclick="openProject()">
+            Ouvrir le projet â†’
+        </button>
+
+    `;
 
 
-    <script src="script.js"></script>
+    projectList.prepend(project);
 
-</body>
-</html>
+
+    alert(
+        "Ton Space Project a Ã©tÃ© crÃ©Ã© ! ðŸš€"
+    );
+
+}
+
+
+/* =====================================================
+   OUVRIR UN PROJET
+===================================================== */
+
+function openProject() {
+
+    alert(
+        "L'espace collaboratif du projet sera dÃ©veloppÃ© dans une prochaine version."
+    );
+
+}
+
+
+/* =====================================================
+   CONNEXION
+===================================================== */
+
+const loginButton =
+    document.querySelector(".login");
+
+
+if (loginButton) {
+
+    loginButton.addEventListener("click", function() {
+
+        alert(
+            "La connexion utilisateur sera disponible dans une prochaine version."
+        );
+
+    });
+
+}
+
+
+/* =====================================================
+   UTILITAIRE DE SÃ‰CURITÃ‰
+===================================================== */
+
+function escapeHTML(text) {
+
+    const div = document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+
+}
+
+
+/* =====================================================
+   ANIMATION AU CHANGEMENT DE PAGE
+===================================================== */
+
+function animateCards() {
+
+    const activePage =
+        document.querySelector(".page.active");
+
+    if (!activePage) {
+        return;
+    }
+
+    const cards =
+        activePage.querySelectorAll(
+            ".action-card, .universe, .concept, .project-card, article"
+        );
+
+
+    cards.forEach(function(card, index) {
+
+        card.style.animationDelay =
+            (index * 0.05) + "s";
+
+    });
+
+}
+
+
+/* =====================================================
+   INITIALISATION
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        animateCards();
+
+    }
+);
