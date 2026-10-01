@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,10 @@
 
 <body>
 
-    <!-- NAVIGATION -->
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
     <header class="navbar">
 
         <div class="logo">
@@ -19,85 +23,226 @@
         </div>
 
         <nav>
-            <button onclick="showPage('home')">Accueil</button>
-            <button onclick="showPage('explorer')">Explorer</button>
-            <button onclick="showPage('learn')">Apprendre</button>
-            <button onclick="showPage('projects')">Projets</button>
-            <button onclick="showPage('library')">BibliothÃ¨que</button>
-            <button onclick="showPage('profile')">Profil</button>
+
+            <button onclick="showPage('home')">
+                Accueil
+            </button>
+
+            <!-- MENU DÉROULANT EXPLORER -->
+            <div class="dropdown">
+
+                <button class="dropbtn">
+                    Explorer ▾
+                </button>
+
+                <div class="dropdown-content">
+
+                    <button onclick="showPage('explorer')">
+                        🌌 Toutes les connaissances
+                    </button>
+
+                    <button onclick="selectUniverse('Sciences')">
+                        🔬 Sciences
+                    </button>
+
+                    <button onclick="selectUniverse('Santé')">
+                        🧬 Santé
+                    </button>
+
+                    <button onclick="selectUniverse('Philosophie')">
+                        🧠 Philosophie
+                    </button>
+
+                    <button onclick="selectUniverse('Finance')">
+                        📈 Finance
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- MENU DÉROULANT APPRENDRE -->
+            <div class="dropdown">
+
+                <button class="dropbtn">
+                    Apprendre ▾
+                </button>
+
+                <div class="dropdown-content">
+
+                    <button onclick="showPage('learn')">
+                        🎓 Mon parcours
+                    </button>
+
+                    <button onclick="showPage('learn')">
+                        🌱 Débutant
+                    </button>
+
+                    <button onclick="showPage('learn')">
+                        🚀 Intermédiaire
+                    </button>
+
+                    <button onclick="showPage('learn')">
+                        🧪 Avancé
+                    </button>
+
+                    <button onclick="showPage('learn')">
+                        🧠 Expert
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <button onclick="showPage('projects')">
+                Projets
+            </button>
+
+            <button onclick="showPage('library')">
+                Bibliothèque
+            </button>
+
+            <button onclick="showPage('profile')">
+                Profil
+            </button>
+
         </nav>
 
-        <button class="login">Connexion</button>
+        <button class="login">
+            Connexion
+        </button>
 
     </header>
 
 
-    <!-- CONTENU PRINCIPAL -->
+    <!-- =========================
+         CONTENU PRINCIPAL
+    ========================== -->
+
     <main>
 
 
-        <!-- ACCUEIL -->
+        <!-- =========================
+             ACCUEIL
+        ========================== -->
+
         <section id="home" class="page active">
 
-            <div class="hero">
+            <!-- HERO SCIENCES / ESPACE -->
 
-                <p class="small-title">PLATEFORME COLLABORATIVE DE CONNAISSANCES</p>
+            <div class="hero science-hero">
 
-                <h1>
-                    DÃ©couvrir.<br>
-                    Comprendre.<br>
-                    <span>Construire ensemble.</span>
-                </h1>
+                <div class="hero-content">
 
-                <p class="hero-text">
-                    Une plateforme pour explorer, apprendre et construire
-                    collectivement des connaissances.
-                </p>
+                    <p class="small-title">
+                        PLATEFORME COLLABORATIVE DE CONNAISSANCES
+                    </p>
 
-                <div class="hero-buttons">
-                    <button class="primary" onclick="showPage('explorer')">
-                        Explorer
-                    </button>
+                    <h1>
+                        Découvrir.<br>
+                        Comprendre.<br>
+                        <span>Construire ensemble.</span>
+                    </h1>
 
-                    <button class="secondary" onclick="showPage('learn')">
-                        Commencer Ã  apprendre
-                    </button>
+                    <p class="hero-text">
+                        Une plateforme pour explorer, apprendre et construire
+                        collectivement des connaissances.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <button
+                            class="primary"
+                            onclick="showPage('explorer')">
+                            Explorer
+                        </button>
+
+                        <button
+                            class="secondary"
+                            onclick="showPage('learn')">
+                            Commencer à apprendre
+                        </button>
+
+                    </div>
+
                 </div>
 
             </div>
 
 
+            <!-- UNIVERS SCIENTIFIQUE -->
+
             <div class="section">
 
-                <h2>Que souhaites-tu faire aujourd'hui ?</h2>
+                <p class="small-title">
+                    UNIVERS SCIENTIFIQUE
+                </p>
+
+                <h2>
+                    Explore les grandes disciplines
+                </h2>
 
                 <div class="three-cards">
 
-                    <div class="action-card" onclick="showPage('explorer')">
-                        <div class="icon">??</div>
-                        <h3>Explorer</h3>
+                    <div
+                        class="action-card"
+                        onclick="selectUniverse('Sciences')">
+
+                        <div class="icon">
+                            🔬
+                        </div>
+
+                        <h3>
+                            Sciences
+                        </h3>
+
                         <p>
-                            DÃ©couvre des concepts, des actualitÃ©s,
-                            des histoires et des sources.
+                            Physique, chimie, biologie, informatique,
+                            intelligence artificielle et espace.
                         </p>
+
                     </div>
 
-                    <div class="action-card" onclick="showPage('learn')">
-                        <div class="icon">??</div>
-                        <h3>Apprendre</h3>
+
+                    <div
+                        class="action-card"
+                        onclick="selectUniverse('Santé')">
+
+                        <div class="icon">
+                            🧬
+                        </div>
+
+                        <h3>
+                            Santé
+                        </h3>
+
                         <p>
-                            Construis ton parcours et progresse
-                            Ã  ton propre niveau.
+                            Biologie humaine, neurosciences, génétique,
+                            médecine et fonctionnement du corps.
                         </p>
+
                     </div>
 
-                    <div class="action-card" onclick="showPage('projects')">
-                        <div class="icon">??</div>
-                        <h3>Contribuer</h3>
+
+                    <div
+                        class="action-card"
+                        onclick="showPage('projects')">
+
+                        <div class="icon">
+                            🌍
+                        </div>
+
+                        <h3>
+                            Construire
+                        </h3>
+
                         <p>
-                            Participe Ã  des projets et construis
-                            des connaissances avec d'autres.
+                            Travaille avec d'autres personnes pour
+                            construire et améliorer les connaissances.
                         </p>
+
                     </div>
 
                 </div>
@@ -105,29 +250,140 @@
             </div>
 
 
+            <!-- PHOTOS SCIENTIFIQUES -->
+
             <div class="section">
 
-                <h2>Continuer Ã  apprendre</h2>
+                <p class="small-title">
+                    À LA UNE
+                </p>
+
+                <h2>
+                    Explorer le monde des sciences
+                </h2>
+
+                <div class="science-gallery">
+
+                    <article class="science-image-card">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1000&q=80"
+                            alt="Laboratoire scientifique">
+
+                        <div class="image-card-content">
+
+                            <span class="tag">
+                                SCIENCES
+                            </span>
+
+                            <h3>
+                                Le monde de la recherche
+                            </h3>
+
+                            <p>
+                                Découvre comment les scientifiques
+                                construisent de nouvelles connaissances.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="science-image-card">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1000&q=80"
+                            alt="Vue de la Terre depuis l'espace">
+
+                        <div class="image-card-content">
+
+                            <span class="tag">
+                                ESPACE
+                            </span>
+
+                            <h3>
+                                Comprendre notre univers
+                            </h3>
+
+                            <p>
+                                De la Terre aux galaxies :
+                                explore les grandes questions de l'astronomie.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="science-image-card">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1000&q=80"
+                            alt="Recherche en biologie">
+
+                        <div class="image-card-content">
+
+                            <span class="tag">
+                                BIOLOGIE
+                            </span>
+
+                            <h3>
+                                Le vivant
+                            </h3>
+
+                            <p>
+                                Explore les mécanismes qui permettent
+                                à la vie d'exister.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTINUER À APPRENDRE -->
+
+            <div class="section">
+
+                <h2>
+                    Continuer à apprendre
+                </h2>
 
                 <div class="learning-card">
 
                     <div>
-                        <span class="tag">SCIENCES</span>
 
-                        <h3>Comprendre la mÃ©canique quantique</h3>
+                        <span class="tag">
+                            SCIENCES
+                        </span>
+
+                        <h3>
+                            Comprendre la mécanique quantique
+                        </h3>
 
                         <p>
                             Progression : 35 %
                         </p>
+
                     </div>
 
                     <div class="progress">
+
                         <div style="width:35%"></div>
+
                     </div>
 
-                    <button class="primary small"
-                            onclick="showPage('learn')">
+                    <button
+                        class="primary small"
+                        onclick="showPage('learn')">
+
                         Continuer
+
                     </button>
 
                 </div>
@@ -135,37 +391,67 @@
             </div>
 
 
+            <!-- À DÉCOUVRIR -->
+
             <div class="section">
 
-                <h2>Ã€ dÃ©couvrir</h2>
+                <h2>
+                    À découvrir
+                </h2>
 
                 <div class="content-grid">
 
                     <article>
-                        <span class="tag">SCIENCES</span>
-                        <h3>Les rÃ©seaux neuronaux</h3>
+
+                        <span class="tag">
+                            SCIENCES
+                        </span>
+
+                        <h3>
+                            Les réseaux neuronaux
+                        </h3>
+
                         <p>
                             Comprendre les principes fondamentaux
                             de l'intelligence artificielle.
                         </p>
+
                     </article>
 
+
                     <article>
-                        <span class="tag">SANTÃ‰</span>
-                        <h3>Comment fonctionne la mÃ©moire ?</h3>
+
+                        <span class="tag">
+                            SANTÉ
+                        </span>
+
+                        <h3>
+                            Comment fonctionne la mémoire ?
+                        </h3>
+
                         <p>
-                            Explorer les mÃ©canismes biologiques
-                            de la mÃ©moire humaine.
+                            Explorer les mécanismes biologiques
+                            de la mémoire humaine.
                         </p>
+
                     </article>
 
+
                     <article>
-                        <span class="tag">PHILOSOPHIE</span>
-                        <h3>Qu'est-ce que la conscience ?</h3>
+
+                        <span class="tag">
+                            PHILOSOPHIE
+                        </span>
+
+                        <h3>
+                            Qu'est-ce que la conscience ?
+                        </h3>
+
                         <p>
-                            DÃ©couvrir les principales thÃ©ories
+                            Découvrir les principales théories
                             philosophiques.
                         </p>
+
                     </article>
 
                 </div>
@@ -175,18 +461,25 @@
         </section>
 
 
-        <!-- EXPLORER -->
+        <!-- =========================
+             EXPLORER
+        ========================== -->
+
         <section id="explorer" class="page">
 
             <div class="page-header">
 
-                <p class="small-title">EXPLORER</p>
+                <p class="small-title">
+                    EXPLORER
+                </p>
 
-                <h1>Explore les connaissances</h1>
+                <h1>
+                    Explore les connaissances
+                </h1>
 
                 <p>
-                    DÃ©couvre des concepts, des sources et des sujets
-                    organisÃ©s par discipline.
+                    Découvre des concepts, des sources et des sujets
+                    organisés par discipline.
                 </p>
 
             </div>
@@ -194,68 +487,87 @@
 
             <div class="universes">
 
-                <div class="universe sciences"
-                     onclick="selectUniverse('Sciences')">
 
-                    <span>??</span>
+                <div
+                    class="universe sciences"
+                    onclick="selectUniverse('Sciences')">
 
-                    <h2>Sciences</h2>
+                    <span>🔬</span>
+
+                    <h2>
+                        Sciences
+                    </h2>
 
                     <p>
                         Physique, chimie, informatique,
                         IA, environnement...
                     </p>
 
-                    <button>Explorer ?</button>
+                    <button>
+                        Explorer →
+                    </button>
 
                 </div>
 
 
-                <div class="universe health"
-                     onclick="selectUniverse('SantÃ©')">
+                <div
+                    class="universe health"
+                    onclick="selectUniverse('Santé')">
 
-                    <span>??</span>
+                    <span>🧬</span>
 
-                    <h2>SantÃ©</h2>
+                    <h2>
+                        Santé
+                    </h2>
 
                     <p>
-                        Biologie, mÃ©decine, neurosciences,
-                        gÃ©nÃ©tique...
+                        Biologie, médecine, neurosciences,
+                        génétique...
                     </p>
 
-                    <button>Explorer ?</button>
+                    <button>
+                        Explorer →
+                    </button>
 
                 </div>
 
 
                 <div class="universe philosophy">
 
-                    <span>???</span>
+                    <span>🧠</span>
 
-                    <h2>Philosophie</h2>
+                    <h2>
+                        Philosophie
+                    </h2>
 
                     <p>
-                        Ã‰thique, logique, mÃ©taphysique,
-                        Ã©pistÃ©mologie...
+                        Éthique, logique, métaphysique,
+                        épistémologie...
                     </p>
 
-                    <button>BientÃ´t</button>
+                    <button>
+                        Bientôt
+                    </button>
 
                 </div>
 
 
                 <div class="universe finance">
 
-                    <span>??</span>
+                    <span>📈</span>
 
-                    <h2>Finance</h2>
+                    <h2>
+                        Finance
+                    </h2>
 
                     <p>
-                        Ã‰conomie, marchÃ©s, finance personnelle,
+                        Économie, marchés, finance personnelle,
                         risques...
                     </p>
 
-                    <button>BientÃ´t</button>
+                    <button>
+                        Bientôt
+                    </button>
 
                 </div>
 
@@ -264,32 +576,60 @@
 
             <div class="section">
 
-                <h2>Concepts populaires</h2>
+                <h2>
+                    Concepts populaires
+                </h2>
 
                 <div class="concept-grid">
 
                     <div class="concept">
-                        <span>SCIENCES</span>
-                        <h3>MÃ©canique quantique</h3>
+
+                        <span>
+                            SCIENCES
+                        </span>
+
+                        <h3>
+                            Mécanique quantique
+                        </h3>
+
                         <p>
-                            Superposition Â· Intrication Â· Mesure
+                            Superposition · Intrication · Mesure
                         </p>
+
                     </div>
 
-                    <div class="concept">
-                        <span>SCIENCES</span>
-                        <h3>Intelligence artificielle</h3>
-                        <p>
-                            Machine Learning Â· LLM Â· Transformers
-                        </p>
-                    </div>
 
                     <div class="concept">
-                        <span>SANTÃ‰</span>
-                        <h3>Neurosciences</h3>
+
+                        <span>
+                            SCIENCES
+                        </span>
+
+                        <h3>
+                            Intelligence artificielle
+                        </h3>
+
                         <p>
-                            Cerveau Â· MÃ©moire Â· Neurones
+                            Machine Learning · LLM · Transformers
                         </p>
+
+                    </div>
+
+
+                    <div class="concept">
+
+                        <span>
+                            SANTÉ
+                        </span>
+
+                        <h3>
+                            Neurosciences
+                        </h3>
+
+                        <p>
+                            Cerveau · Mémoire · Neurones
+                        </p>
+
                     </div>
 
                 </div>
@@ -299,17 +639,24 @@
         </section>
 
 
-        <!-- APPRENDRE -->
+        <!-- =========================
+             APPRENDRE
+        ========================== -->
+
         <section id="learn" class="page">
 
             <div class="page-header">
 
-                <p class="small-title">APPRENDRE</p>
+                <p class="small-title">
+                    APPRENDRE
+                </p>
 
-                <h1>Que veux-tu comprendre ?</h1>
+                <h1>
+                    Que veux-tu comprendre ?
+                </h1>
 
                 <p>
-                    Construis un parcours adaptÃ© Ã  ton niveau.
+                    Construis un parcours adapté à ton niveau.
                 </p>
 
             </div>
@@ -320,19 +667,35 @@
                 <input
                     type="text"
                     id="learningInput"
-                    placeholder="Exemple : Je veux comprendre la relativitÃ©..."
+                    placeholder="Exemple : Je veux comprendre la relativité..."
                 >
 
                 <select id="level">
-                    <option>DÃ©butant</option>
-                    <option>IntermÃ©diaire</option>
-                    <option>AvancÃ©</option>
-                    <option>Expert</option>
+
+                    <option>
+                        Débutant
+                    </option>
+
+                    <option>
+                        Intermédiaire
+                    </option>
+
+                    <option>
+                        Avancé
+                    </option>
+
+                    <option>
+                        Expert
+                    </option>
+
                 </select>
 
-                <button class="primary"
-                        onclick="createLearningPath()">
-                    CrÃ©er mon parcours
+                <button
+                    class="primary"
+                    onclick="createLearningPath()">
+
+                    Créer mon parcours
+
                 </button>
 
             </div>
@@ -343,46 +706,86 @@
 
             <div class="section">
 
-                <h2>Exemple de parcours</h2>
+                <h2>
+                    Exemple de parcours
+                </h2>
 
                 <div class="path">
 
                     <div class="path-step">
-                        <strong>01</strong>
-                        <h3>PrÃ©requis</h3>
+
+                        <strong>
+                            01
+                        </strong>
+
+                        <h3>
+                            Prérequis
+                        </h3>
+
                         <p>
-                            Vecteurs Â· RÃ©fÃ©rentiels Â· Mouvement
+                            Vecteurs · Référentiels · Mouvement
                         </p>
+
                     </div>
+
 
                     <div class="path-line"></div>
 
+
                     <div class="path-step">
-                        <strong>02</strong>
-                        <h3>Fondamentaux</h3>
+
+                        <strong>
+                            02
+                        </strong>
+
+                        <h3>
+                            Fondamentaux
+                        </h3>
+
                         <p>
-                            Temps Â· Espace Â· LumiÃ¨re
+                            Temps · Espace · Lumière
                         </p>
+
                     </div>
+
 
                     <div class="path-line"></div>
 
+
                     <div class="path-step">
-                        <strong>03</strong>
-                        <h3>IntermÃ©diaire</h3>
+
+                        <strong>
+                            03
+                        </strong>
+
+                        <h3>
+                            Intermédiaire
+                        </h3>
+
                         <p>
-                            Espace-temps Â· Dilatation du temps
+                            Espace-temps · Dilatation du temps
                         </p>
+
                     </div>
+
 
                     <div class="path-line"></div>
 
+
                     <div class="path-step">
-                        <strong>04</strong>
-                        <h3>AvancÃ©</h3>
+
+                        <strong>
+                            04
+                        </strong>
+
+                        <h3>
+                            Avancé
+                        </h3>
+
                         <p>
-                            RelativitÃ© gÃ©nÃ©rale
+                            Relativité générale
                         </p>
+
                     </div>
 
                 </div>
@@ -392,47 +795,64 @@
         </section>
 
 
-        <!-- PROJETS -->
+        <!-- =========================
+             PROJETS
+        ========================== -->
+
         <section id="projects" class="page">
 
             <div class="page-header">
 
-                <p class="small-title">SPACE PROJECTS</p>
+                <p class="small-title">
+                    SPACE PROJECTS
+                </p>
 
-                <h1>Construire ensemble</h1>
+                <h1>
+                    Construire ensemble
+                </h1>
 
                 <p>
                     Travaille avec d'autres personnes sur des sujets
                     complexes.
                 </p>
 
-                <button class="primary"
-                        onclick="createProject()">
-                    + CrÃ©er un projet
+                <button
+                    class="primary"
+                    onclick="createProject()">
+
+                    + Créer un projet
+
                 </button>
 
             </div>
 
 
-            <div id="projectList" class="project-grid">
+            <div
+                id="projectList"
+                class="project-grid">
+
 
                 <article class="project-card">
 
-                    <span class="status">EN CONSTRUCTION</span>
+                    <span class="status">
+                        EN CONSTRUCTION
+                    </span>
 
-                    <h2>Comprendre l'intelligence artificielle gÃ©nÃ©rative</h2>
+                    <h2>
+                        Comprendre l'intelligence artificielle générative
+                    </h2>
 
                     <p>
-                        Construire une synthÃ¨se structurÃ©e sur les
+                        Construire une synthèse structurée sur les
                         Transformers, les LLM et leurs limites.
                     </p>
 
                     <div class="project-info">
-                        ?? 12 collaborateurs
+                        👥 12 collaborateurs
                     </div>
 
                     <button onclick="openProject()">
-                        Voir le projet ?
+                        Voir le projet →
                     </button>
 
                 </article>
@@ -440,21 +860,25 @@
 
                 <article class="project-card">
 
-                    <span class="status">EN RÃ‰VISION</span>
+                    <span class="status">
+                        EN RÉVISION
+                    </span>
 
-                    <h2>Comprendre les mÃ©canismes de la mÃ©moire</h2>
+                    <h2>
+                        Comprendre les mécanismes de la mémoire
+                    </h2>
 
                     <p>
                         Explorer les connaissances disponibles
-                        sur la mÃ©moire humaine.
+                        sur la mémoire humaine.
                     </p>
 
                     <div class="project-info">
-                        ?? 8 collaborateurs
+                        👥 8 collaborateurs
                     </div>
 
                     <button onclick="openProject()">
-                        Voir le projet ?
+                        Voir le projet →
                     </button>
 
                 </article>
@@ -462,21 +886,25 @@
 
                 <article class="project-card">
 
-                    <span class="status">PUBLIC</span>
+                    <span class="status">
+                        PUBLIC
+                    </span>
 
-                    <h2>Histoire des grandes dÃ©couvertes scientifiques</h2>
+                    <h2>
+                        Histoire des grandes découvertes scientifiques
+                    </h2>
 
                     <p>
                         Construire une chronologie collaborative
-                        des dÃ©couvertes majeures.
+                        des découvertes majeures.
                     </p>
 
                     <div class="project-info">
-                        ?? 21 collaborateurs
+                        👥 21 collaborateurs
                     </div>
 
                     <button onclick="openProject()">
-                        Voir le projet ?
+                        Voir le projet →
                     </button>
 
                 </article>
@@ -486,17 +914,24 @@
         </section>
 
 
-        <!-- BIBLIOTHÃˆQUE -->
+        <!-- =========================
+             BIBLIOTHÈQUE
+        ========================== -->
+
         <section id="library" class="page">
 
             <div class="page-header">
 
-                <p class="small-title">BIBLIOTHÃˆQUE</p>
+                <p class="small-title">
+                    BIBLIOTHÈQUE
+                </p>
 
-                <h1>Sources et connaissances</h1>
+                <h1>
+                    Sources et connaissances
+                </h1>
 
                 <p>
-                    Retrouve les ressources utilisÃ©es par la communautÃ©.
+                    Retrouve les ressources utilisées par la communauté.
                 </p>
 
             </div>
@@ -519,21 +954,53 @@
             <div class="source-list">
 
                 <article>
-                    <span>ARTICLE SCIENTIFIQUE</span>
-                    <h3>Introduction Ã  la relativitÃ©</h3>
-                    <p>Source scientifique Â· 2026</p>
+
+                    <span>
+                        ARTICLE SCIENTIFIQUE
+                    </span>
+
+                    <h3>
+                        Introduction à la relativité
+                    </h3>
+
+                    <p>
+                        Source scientifique · 2026
+                    </p>
+
                 </article>
 
-                <article>
-                    <span>PUBLICATION</span>
-                    <h3>Neuroscience and Human Memory</h3>
-                    <p>Publication acadÃ©mique</p>
-                </article>
 
                 <article>
-                    <span>RAPPORT</span>
-                    <h3>Artificial Intelligence Research</h3>
-                    <p>Rapport institutionnel</p>
+
+                    <span>
+                        PUBLICATION
+                    </span>
+
+                    <h3>
+                        Neuroscience and Human Memory
+                    </h3>
+
+                    <p>
+                        Publication académique
+                    </p>
+
+                </article>
+
+
+                <article>
+
+                    <span>
+                        RAPPORT
+                    </span>
+
+                    <h3>
+                        Artificial Intelligence Research
+                    </h3>
+
+                    <p>
+                        Rapport institutionnel
+                    </p>
+
                 </article>
 
             </div>
@@ -541,19 +1008,32 @@
         </section>
 
 
-        <!-- PROFIL -->
+        <!-- =========================
+             PROFIL
+        ========================== -->
+
         <section id="profile" class="page">
 
             <div class="profile-header">
 
-                <div class="avatar">U</div>
+                <div class="avatar">
+                    U
+                </div>
 
                 <div>
-                    <p class="small-title">MON PROFIL</p>
-                    <h1>Utilisateur</h1>
-                    <p>
-                        Explorer Â· Apprendre Â· Contribuer
+
+                    <p class="small-title">
+                        MON PROFIL
                     </p>
+
+                    <h1>
+                        Utilisateur
+                    </h1>
+
+                    <p>
+                        Explorer · Apprendre · Contribuer
+                    </p>
+
                 </div>
 
             </div>
@@ -561,21 +1041,35 @@
 
             <div class="profile-grid">
 
+
                 <div class="profile-card">
 
-                    <h2>Mes domaines</h2>
+                    <h2>
+                        Mes domaines
+                    </h2>
 
-                    <p>?? Sciences</p>
+                    <p>
+                        🔬 Sciences
+                    </p>
+
                     <div class="bar">
                         <div style="width:80%"></div>
                     </div>
 
-                    <p>?? SantÃ©</p>
+
+                    <p>
+                        🧬 Santé
+                    </p>
+
                     <div class="bar">
                         <div style="width:65%"></div>
                     </div>
 
-                    <p>??? Philosophie</p>
+
+                    <p>
+                        🧠 Philosophie
+                    </p>
+
                     <div class="bar">
                         <div style="width:40%"></div>
                     </div>
@@ -585,16 +1079,35 @@
 
                 <div class="profile-card">
 
-                    <h2>Mes contributions</h2>
+                    <h2>
+                        Mes contributions
+                    </h2>
 
-                    <h3>12</h3>
-                    <p>connaissances amÃ©liorÃ©es</p>
+                    <h3>
+                        12
+                    </h3>
 
-                    <h3>4</h3>
-                    <p>projets</p>
+                    <p>
+                        connaissances améliorées
+                    </p>
 
-                    <h3>28</h3>
-                    <p>sources partagÃ©es</p>
+
+                    <h3>
+                        4
+                    </h3>
+
+                    <p>
+                        projets
+                    </p>
+
+
+                    <h3>
+                        28
+                    </h3>
+
+                    <p>
+                        sources partagées
+                    </p>
 
                 </div>
 
@@ -605,7 +1118,10 @@
     </main>
 
 
-    <!-- FOOTER -->
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
     <footer>
 
         <div class="logo">
@@ -613,13 +1129,16 @@
         </div>
 
         <p>
-            Je dÃ©couvre. Je comprends. Je contribue.
+            Je découvre. Je comprends. Je contribue.
         </p>
 
     </footer>
 
 
+    <!-- JAVASCRIPT -->
+
     <script src="script.js"></script>
 
 </body>
+
 </html>
